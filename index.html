@@ -6,6 +6,10 @@
   <title>iamrutwik</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -15,26 +19,38 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .card {
       background: white;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
       text-align: center;
-      max-width: 400px;
+      max-width: 420px;
       width: 90%;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
     }
 
     h1 {
-      color: #333;
+      color: #222;
+      font-size: 28px;
       margin-bottom: 10px;
     }
 
     p {
       font-size: 16px;
-      color: #555;
+      color: #444;
       margin-bottom: 30px;
     }
 
@@ -44,22 +60,25 @@
       justify-content: center;
       gap: 8px;
       text-decoration: none;
-      margin: 10px 0;
-      background: #0072b1;
-      color: white;
+      margin: 12px 0;
       padding: 12px 20px;
-      border-radius: 8px;
-      transition: background 0.3s ease;
+      border-radius: 10px;
+      color: white;
       font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .link:hover {
-      background: #005c94;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
     }
 
-    .icon {
-      font-size: 18px;
+    .linkedin { background: #0077b5; }
+    .github   { background: #24292e; }
+    .instagram {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
     }
+    .reddit   { background: #ff4500; }
 
     footer {
       margin-top: 30px;
@@ -73,10 +92,10 @@
     <h1>Hi, I'm Rutwik Wakale 👋</h1>
     <p>Search for <strong>iamrutwik</strong> to find me online 🚀</p>
 
-    <a class="link" href="https://www.linkedin.com/in/rutwik004/" target="_blank">🔗 LinkedIn</a>
-    <a class="link" href="https://github.com/rutwik004" target="_blank">🐙 GitHub</a>
-    <a class="link" href="https://www.instagram.com/rutwik_26/" target="_blank">📸 Instagram</a>
-    <a class="link" href="https://www.reddit.com/user/rutwik004/" target="_blank">👽 Reddit</a>
+    <a class="link linkedin" href="https://www.linkedin.com/in/rutwik004/" target="_blank">🔗 LinkedIn</a>
+    <a class="link github" href="https://github.com/rutwik004" target="_blank">🐙 GitHub</a>
+    <a class="link instagram" href="https://www.instagram.com/rutwik_26/" target="_blank">📸 Instagram</a>
+    <a class="link reddit" href="https://www.reddit.com/user/rutwik004/" target="_blank">👽 Reddit</a>
 
     <footer>© 2025 iamrutwik</footer>
   </div>
