@@ -3,113 +3,155 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<!-- SEO Meta Tags -->
-<meta name="description" content="I'm Rutwik Wakale. Find all my social profiles by searching 'rutwikhere' online.">
-<meta name="keywords" content="iamrutwik, rutwikhere, Rutwik Wakale, Rutwik LinkedIn, Rutwik GitHub, Rutwik Instagram, Rutwik Reddit">
-<meta name="author" content="Rutwik Wakale">
+  <title>Rutwik Wakale</title>
+  <link rel="icon" type="image/x-icon" href="favicon.png">
 
-<!-- Open Graph (for social previews) -->
-<meta property="og:title" content="Rutwik Wakale - rutwikhere">
-<meta property="og:description" content="Search 'rutwikhere' to discover all my online profiles.">
-<meta property="og:image" content="https://rutwik004.github.io/rutwikhereweb/assets/profile-preview.png">
-<meta property="og:url" content="https://rutwik004.github.io/rutwikhere/">
-<meta property="og:type" content="website">
 
-  <title>MyProfile</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="description" content="I'm Rutwik Wakale. Find all my social profiles by searching 'rutwikhere' online.">
+  <meta name="keywords" content="rutwikhere, Rutwik Wakale, Rutwik LinkedIn, GitHub, Instagram">
+  <meta name="author" content="Rutwik Wakale">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
   <style>
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #e0eafc, #cfdef3);
       font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #e0eafc, #cfdef3);
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      padding: 20px;
     }
 
     .card {
-      background: white;
-      padding: 40px 30px;
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      background-color: rgba(255, 255, 255, 0.75);
       border-radius: 20px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-      text-align: center;
+      padding: 50px 35px;
       max-width: 420px;
-      width: 90%;
-      transition: transform 0.3s ease;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: all 0.3s ease;
     }
 
     .card:hover {
-      transform: scale(1.02);
+      transform: scale(1.015);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+      border-color: #aad8ff;
+    }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 3px solid #fff;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .avatar:hover {
+      transform: scale(1.08);
     }
 
     h1 {
+      font-size: 26px;
+      margin-bottom: 8px;
+      font-weight: 700;
       color: #222;
-      font-size: 28px;
-      margin-bottom: 10px;
     }
 
     p {
-      font-size: 16px;
+      font-size: 14px;
       color: #444;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
 
-    .link {
+    .social-link {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
+      margin: 10px 0;
+      padding: 13px 22px;
+      border-radius: 14px;
+      color: #fff;
       text-decoration: none;
-      margin: 12px 0;
-      padding: 12px 20px;
-      border-radius: 10px;
-      color: white;
       font-weight: 600;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: all 0.3s ease;
+      border: none;
     }
 
-    .link:hover {
+    .social-link i {
+      font-size: 17px;
+    }
+
+    .social-link.linkedin {
+      background: #0077b5;
+    }
+
+    .social-link.github {
+      background: #171515;
+    }
+
+    .social-link.instagram {
+      background: linear-gradient(45deg, #feda75, #d62976, #962fbf, #4f5bd5);
+    }
+
+    .social-link.reddit {
+      background: #FF4500;
+    }
+
+    .social-link:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      filter: brightness(1.05);
     }
-
-    .linkedin { background: #0077b5; }
-    .github   { background: #24292e; }
-    .instagram {
-      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    }
-    .reddit   { background: #ff4500; }
 
     footer {
-      margin-top: 30px;
-      font-size: 13px;
-      color: #888;
+      margin-top: 35px;
+      font-size: 12px;
+      color: #666;
+    }
+
+    @media screen and (max-width: 480px) {
+      .card {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 13px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>Hi, I'm Rutwik Wakale 👋</h1>
-    <p>Search for <strong>rutwikhere</strong> to find me online 🚀</p>
+    <img src="profile.png" alt="Rutwik Wakale" class="avatar">
+    <h1>Rutwik Wakale 👋</h1>
+    <p>Search <strong>rutwikhere</strong> to find me anywhere 🔍</p>
 
-    <a class="link linkedin" href="https://www.linkedin.com/in/iamrutwik/" target="_blank">🔗 LinkedIn</a>
-    <a class="link github" href="https://github.com/rutwikhere" target="_blank">🐙 GitHub</a>
-    <a class="link instagram" href="https://www.instagram.com/rutwikhere/" target="_blank">📸 Instagram</a>
-    <a class="link reddit" href="https://www.reddit.com/user/rutwik004/" target="_blank">👽 Reddit</a>
+    <a class="social-link linkedin" href="https://www.linkedin.com/in/iamrutwik/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <a class="social-link instagram" href="https://www.instagram.com/rutwikhere/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+    <a class="social-link github" href="https://github.com/rutwikhere" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+    <a class="social-link reddit" href="https://www.reddit.com/user/rutwik004/" target="_blank"><i class="fab fa-reddit"></i> Reddit</a>
 
-    <footer>© 2025 iamrutwik</footer>
+    <footer>© 2025 rutwikhere</footer>
   </div>
 </body>
 </html>
