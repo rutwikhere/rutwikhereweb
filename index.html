@@ -7,7 +7,62 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+<script>
+    if (!window.matchMedia("(pointer: coarse)").matches) {
+  
+      let targetX = 50, targetY = 50;
+      let currentX = 50, currentY = 50;
+  
+      let lastX = 50, lastY = 50;
+  
+      let velocityX = 0, velocityY = 0;
+  
+      const ease = 0.05;
+      const maxStretch = 520; // controls deformation amount
+  
+      document.addEventListener("mousemove", (e) => {
+        targetX = (e.clientX / window.innerWidth) * 100;
+        targetY = (e.clientY / window.innerHeight) * 100;
+      });
+  
+      function animate() {
+        // Smooth position
+        currentX += (targetX - currentX) * ease;
+        currentY += (targetY - currentY) * ease;
+  
+        // Velocity (movement direction)
+        velocityX = currentX - lastX;
+        velocityY = currentY - lastY;
+  
+        lastX = currentX;
+        lastY = currentY;
+  
+        // Stretch based on speed
+        const speed = Math.min(
+          Math.sqrt(velocityX ** 2 + velocityY ** 2) * 40,
+          maxStretch
+        );
+  
+        document.documentElement.style.setProperty("--x", `${currentX}%`);
+        document.documentElement.style.setProperty("--y", `${currentY}%`);
+  
+        document.documentElement.style.setProperty("--dx", `${velocityX * 6}px`);
+        document.documentElement.style.setProperty("--dy", `${velocityY * 6}px`);
+  
+        document.documentElement.style.setProperty("--stretch", `${speed}px`);
+  
+        requestAnimationFrame(animate);
+      }
+  
+      animate();
+    }
+  </script>
+  
+  
+  
+  
 <body>
+    <div class="bg-ambient"></div>
 
   <!-- NAV -->
   <header class="navbar">
@@ -54,25 +109,28 @@
 
     <div class="skill-grid">
       <div class="skill-card">
-        <div class="icon">💻</div>
+        <div class="skill-accent"></div>
+
         <h3>Programming</h3>
         <p>C · Python · Dart</p>
       </div>
 
       <div class="skill-card">
-        <div class="icon">📱</div>
+        <div class="skill-accent"></div>
         <h3>Mobile & Frontend</h3>
         <p>Flutter · React (Vite)</p>
       </div>
 
       <div class="skill-card">
-        <div class="icon">☁️</div>
+        <div class="skill-accent"></div>
+
         <h3>Backend & Cloud</h3>
         <p>Firebase · Firestore · Supabase</p>
       </div>
 
       <div class="skill-card">
-        <div class="icon">🛠️</div>
+        <div class="skill-accent"></div>
+
         <h3>Tools & Concepts</h3>
         <p>Git · REST APIs · Auth · Debugging</p>
       </div>
@@ -88,7 +146,7 @@
       <!-- KRITUN -->
       <a href="kritun.html" class="project-card">
         <div class="project-header">
-          <span class="project-icon">🎮</span>
+          
           <h3>Kritun</h3>
         </div>
       
@@ -109,7 +167,7 @@
       <!-- ATTENDANCE -->
       <a href="attendance.html" class="project-card">
         <div class="project-header">
-          <span class="project-icon">📊</span>
+          
           <h3>Attendance Management System</h3>
         </div>
       
