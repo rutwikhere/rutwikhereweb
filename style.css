@@ -5,6 +5,61 @@
     --text: #F2EFEA;
     --muted: #B7B2A6;
   }
+  body > *:not(.bg-ambient) {
+    position: relative;
+    z-index: 1;
+  }
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;   /* kills left-right white */
+  }
+  
+  
+  /* =========================
+   Cursor-follow Ambient Glow
+   ========================= */
+   /* =========================
+   Deformable Fluid Glow
+   ========================= */
+.bg-ambient {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  
+    background:
+      radial-gradient(
+        calc(420px + var(--stretch, 0px)) 
+        calc(420px - var(--stretch, 0px)) 
+        at var(--x, 50%) var(--y, 50%),
+        rgba(201,162,77,0.22),
+        rgba(201,162,77,0.10) 35%,
+        transparent 60%
+      ),
+      radial-gradient(
+        300px 300px 
+        at calc(var(--x, 50%) + var(--dx, 0px))
+           calc(var(--y, 50%) + var(--dy, 0px)),
+        rgba(255,255,255,0.06),
+        transparent 70%
+      );
+  
+    transition: background 0.02s linear;
+  }
+  
+  
+  
+  
+  /* Slow, elegant movement */
+  @keyframes ambientMove {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    100% {
+      transform: translate(-40px, -30px) scale(1.05);
+    }
+  }
   
   * {
     margin: 0;
@@ -14,18 +69,30 @@
   }
   
   body {
-    background: var(--bg);
+    background: radial-gradient(circle at top, #0f0f0f, #080808);
     color: var(--text);
     line-height: 1.6;
+    background-color: #0B0B0B;
   }
   
   /* NAV */
   .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 18px 8%;
+  
+    background: rgba(11, 11, 11, 0.75); /* subtle glass effect */
+    backdrop-filter: blur(8px);
+  
+    z-index: 10; /* above bg-ambient */
   }
+  
   
   .brand {
     font-weight: 600;
@@ -100,8 +167,10 @@
   }
   
   .dark {
-    background: var(--bg-soft);
+    background: rgba(18,18,18,0.85);
+    backdrop-filter: blur(2px);
   }
+  
   
   /* SKILLS */
   .skill-grid {
@@ -204,4 +273,74 @@
   .project-card {
     cursor: pointer;
   }
-    
+/* === Skill accent (premium replacement for emojis) === */
+.skill-accent {
+    width: 36px;
+    height: 3px;
+    background: var(--gold);
+    margin: 0 auto 14px;
+    border-radius: 2px;
+    opacity: 0.9;
+  }
+  
+  /* Improve skill card typography */
+  .skill-card h3 {
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  
+  .skill-card p {
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .project-card h3 {
+    font-weight: 600;
+  }
+  
+  .project-card::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--gold);
+    margin-top: 12px;
+    opacity: 0.6;
+  }
+  /* === Project card alignment fix === */
+.project-header {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  
+  .project-card h3 {
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  
+  .project-tag {
+    text-align: center;
+  }
+  
+  /* Keep description readable */
+  .project-card p {
+    text-align: left;
+  }
+  
+  /* Footer stays balanced */
+  .project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header.navbar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+  
+    background: rgba(11, 11, 11, 0.75);
+    backdrop-filter: blur(8px);
+  
+    z-index: 9999; /* above global rule */
+  }
+  
